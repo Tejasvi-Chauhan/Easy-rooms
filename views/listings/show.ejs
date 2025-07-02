@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show</title>
+</head>
+<body>
+       <h2>Details</h2>
+       <ul>
+       <li><b>Title</b> : <%=list.title%></li>
+       <li> <b>description</b> : <%=list.description%></li>
+       <% if (list.price) { %>
+  <li><b>Price</b>: ₹ <%= list.price.toLocaleString("en-IN") %></li>
+<% } else { %>
+  <li><b>Price</b>: Not Available</li>
+<% } %>
+
+
+       <li> <b>Location</b> : <%=list.location%></li>
+       <li> <b>Location</b> : <%=list.country%></li>
+       </ul>
+
+       <a href="/listings/<%=list.id%>/edit">Edit Listing</a>
+       <form method="post" action="/listings/<%=list.id%>?_method=DELETE">
+           <button>Delete</button>
+
+       </form>
+</body>
+</html>
