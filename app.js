@@ -2,12 +2,12 @@ const express=require("express");
 const app=express();
 const Listing=require("./models/listing.js")
 const path=require("path");
+const ejsMate=require("ejs-mate");
 
 const methodOverride = require("method-override");
-app.use(methodOverride("_method")); // Use `_method` from query or body
+ 
 
 
-app.use(express.urlencoded({Extended:true}))
 
 const mongoose=require('mongoose');
 
@@ -24,6 +24,10 @@ main().then(()=>{
 
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
+app.use(express.urlencoded({Extended:true}))
+app.engine('ejs', ejsMate);
+app.use(methodOverride("_method"));
+app.use(express.static(path.join(__dirname,"/public")));
 
 const port=8080;
 app.listen(port,()=>{
