@@ -9,15 +9,18 @@ const listingschema = new mongoose.Schema({
     type: String,
     require: true,
   },
-  image: {
+ image: {
+  filename: {
+    type: String,
+    default: "listingimage"
+  },
+  url: {
     type: String,
     default:
-      "https://unsplash.com/photos/beach-scene-with-a-boat-palm-trees-and-a-chair-HpGZt6CeAas",
-    set: (v) =>
-      v === ""
-        ? "https://unsplash.com/photos/beach-scene-with-a-boat-palm-trees-and-a-chair-HpGZt6CeAas"
-        : v,
-  },
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=60"
+  }
+}
+,
   price: Number,
   location: String,
   country: String,

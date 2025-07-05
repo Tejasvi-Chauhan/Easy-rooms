@@ -1,23 +1,35 @@
 <% layout("/layouts/boilerplate") %>
-<body>
-       <h2>Details</h2>
-       <ul>
-       <li><b>Title</b> : <%=list.title%></li>
-       <li> <b>description</b> : <%=list.description%></li>
-       <% if (list.price) { %>
-  <li><b>Price</b>: ₹ <%= list.price.toLocaleString("en-IN") %></li>
-<% } else { %>
-  <li><b>Price</b>: Not Available</li>
-<% } %>
 
+<div class="row">
+  <div class="col-8 offset-2">
+    
+  <h2> <%=list.title%></h2>
 
-       <li> <b>Location</b> : <%=list.location%></li>
-       <li> <b>Location</b> : <%=list.country%></li>
-       </ul>
+  <div class="card" >
+  <img src="<%=list.image.url%>" class="card-img-top show-img" alt="Image">
+  <div class="card-body">
+    <p>
+    <%=list.description%>. <br>
+    <% if (list.price) { %>
+     ₹ <%= list.price.toLocaleString("en-IN") %>
+    <% } else { %>
+     Not Available
+    <% } %>  <br>
 
-       <a href="/listings/<%=list.id%>/edit">Edit Listing</a>
-       <form method="post" action="/listings/<%=list.id%>?_method=DELETE">
-           <button>Delete</button>
+    <%=list.location%> <br>
+    <%=list.country%>
+    </p>
+  </div>
+</div>
 
-       </form>
-</body>
+<div class="btns gap-4 ">
+  <a href="/listings/<%=list.id%>/edit" class="btn btn-dark    add-btn  px-4">Edit</a>
+
+  <form method="post" action="/listings/<%=list.id%>?_method=DELETE">
+    <button class="btn btn-dark offset-2 px-3">Delete</button>
+    
+  </form>
+  </div>
+    </div>
+
+</div>

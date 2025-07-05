@@ -1,25 +1,46 @@
 <% layout("/layouts/boilerplate") %>
-<body>
-        <form method="post" action="/listings/">
-           
-            <input type="text" name="title" placeholder="title"> Title
-             <br>
-             <br>
-            <input type="text" name="description" placeholder="description"> Description
-            <br>
-            <br>
-            <input type="number" name="price" placeholder="price"> Price
-            <br>
-            <br>
-            <input type="text" name="location" placeholder="location"> Location
-            <br>
-            <br>
-            <input type="text" name="country" placeholder="country"> Country
-            <br>
-            <br>
 
-            
-           
-            <button>Create</button>
-        </form>
-</body>
+<div class="row">
+    <div class="col-8 offset-2">
+         <br>
+        <br>
+         <h2>Create New Listing</h2>
+  <form method="post" action="/listings/">
+    <div class="mb-3">
+       
+      <lable for="title" class="for-label">Title</lable>
+      <input type="text" name="title" placeholder="title" class="form-control"/>
+    </div>
+
+    <div  class="mb-3">
+      <lable for="description" class="for-label">Description</lable>
+      <input type="text" name="description" placeholder="description" class="form-control" />
+    </div>
+     
+    <div class="row">
+   
+         <div  class="mb-3 col-md-4">
+      <lable for="price" class="for-label">Price</lable>
+      <input type="number" name="price" placeholder="2100" class="form-control" />
+    </div>
+
+    
+    <div  class="mb-3 col-md-8">
+      <lable for="country" class="for-label">Country</lable>
+      <input type="text" name="country" placeholder="India" class="form-control" />
+    </div>
+    </div>
+   
+
+    <div  class="mb-3">
+      <lable for="location" class="for-label">Location</lable>
+      <input type="text" name="location" placeholder="Jaipur,Ladakh" class="form-control"/>
+    </div>
+      
+    <br>
+    
+    <button class="btn btn-dark  add-btn">Create</button>
+  </form>
+  </div>
+  </div>
+
